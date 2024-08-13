@@ -16,7 +16,10 @@ const Land = () => {
   };
   const handleelectionk = () => {
     navigate('/Election');
+  };const handleResult = () => {
+    navigate('/Result');
   };
+
 
   return (
     <div id='home'>
@@ -28,8 +31,8 @@ const Land = () => {
           <li className='item'><a className='ite' href='#home'>Home</a></li>
           <li className='item'><a className='ite' onClick={handleClick}>VoteNow!</a></li>
           <li className='item'><a className='ite' onClick={handleelectionk}>Elections</a></li>
-          <li className='item'><a className='ite'><img src={img1} alt='profile' className='img' /></a></li>
-        </ul>
+          <li className='item'><a className='ite' onClick={handleResult}>Results!</a></li>
+         </ul>
       </nav>
 
       <div className='hero'>

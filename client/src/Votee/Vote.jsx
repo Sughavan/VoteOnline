@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Vote.css';
 
@@ -8,6 +9,12 @@ const VotingPage = () => {
   const [candidates, setCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState('');
   const [voteConfirmed, setVoteConfirmed] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/Thanks');
+  };
 
   useEffect(() => {
     const fetchCandidates = async () => {
@@ -88,7 +95,7 @@ const VotingPage = () => {
           </div>
         ))}
         <button 
-          onClick={handleVoteConfirmation} 
+          onClick={handleClick} 
           disabled={!selectedCandidate || voteConfirmed}
           className="vote-button"
         >
