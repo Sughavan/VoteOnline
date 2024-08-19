@@ -1,64 +1,88 @@
-/* Container */
 .thank-you-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(135deg, #f0f3f4, #d9e4ec);
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f0f3f4, #d9e4ec);
+  animation: fadeIn 1s ease-in-out;
 }
 
-/* Heading */
+.thank-you-card {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  animation: slideUp 1s ease-out;
+}
+
 .thank-you-heading {
-    font-size: 2.5em;
-    color: #333;
-    margin-bottom: 20px;
-    font-weight: 600;
-    text-align: center;
+  font-size: 2.5em;
+  color: #1c3d5a;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-/* Paragraph */
 .thank-you-message {
-    font-size: 1.2em;
-    color: #666;
-    margin-bottom: 30px;
-    text-align: center;
-    line-height: 1.5;
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
 }
 
-/* Button */
+.giphy-container {
+  margin-bottom: 20px;
+}
+
 .thank-you-button {
-    padding: 12px 25px;
-    background-color: #007BFF;
-    color: white;
-    font-size: 1em;
-    font-weight: 500;
-    border: none;
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
+  padding: 12px 30px;
+  background-color: #ffa726;
+  color: white;
+  font-size: 1em;
+  font-weight: 600;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .thank-you-button:hover {
-    background-color: #0056b3;
-    box-shadow: 0 6px 12px rgba(0, 86, 179, 0.3);
+  background-color: #e59400;
 }
 
-/* Mobile Responsiveness */
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
 @media (max-width: 768px) {
-    .thank-you-heading {
-        font-size: 2em;
-    }
+  .thank-you-heading {
+    font-size: 2em;
+  }
 
-    .thank-you-message {
-        font-size: 1em;
-    }
+  .thank-you-message {
+    font-size: 1em;
+  }
 
-    .thank-you-button {
-        padding: 10px 20px;
-        font-size: 0.9em;
-    }
+  .thank-you-button {
+    padding: 10px 20px;
+    font-size: 0.9em;
+  }
 }

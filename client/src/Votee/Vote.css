@@ -1,40 +1,39 @@
 .voting-page {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
-  background-color: #a8cdd2;
+  background-color: #eaf2f8; 
 }
 
 .voter-details, .voting-section {
   flex: 1;
   margin: 20px;
   padding: 20px;
-  border: 1px solid #b0bec5;
+  border: 1px solid #1c3d5a; 
   border-radius: 8px;
   background-color: #ffffff; 
 }
 
 .voter-details {
   flex: 1;
-  background-color: #e3f2fd; 
-}
+  background-color: #f0f4ff; }
 
 .voting-section {
- 
   flex: 2;
-  background-color: #f1f8e9;
+  background-color: #fff5e1; 
 }
 
 .candidate-option {
   margin: 10px 0;
-  color: #00473f;
+  color: #1c3d5a; 
   display: flex; 
-  }
+}
 
 .vote-button {
   margin-top: 20px;
   padding: 10px 20px;
-  background-color: #4caf50; 
+  background-color: #ffa726; 
   color: white;
   border: none;
   border-radius: 4px;
@@ -43,27 +42,153 @@
 }
 
 .vote-button:hover {
-  background-color: #45a049; 
+  background-color: #ff9800;
 }
 
 .vote-button:disabled {
-  background-color: #b0bec5; 
+  background-color: #cccccc; 
   cursor: not-allowed;
 }
 
 .vote-count {
   margin-top: 20px;
   font-weight: bold;
-  color: #324954; 
+  color: #1c3d5a; 
 }
-.party-symbol
-{
-  width:75px;
+
+.party-symbol {
+  width: 75px;
   border-radius: 15px;
 }
-.cand-id 
-{
-  display: flex;
 
-  
+.voting-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.voter-details {
+  margin-bottom: 20px;
+}
+
+.voting-section {
+  position: relative;
+  padding: 20px;
+  background-color: #fff5e1;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px;
+}
+
+.candidate-option {
+  margin-bottom: 10px;
+}
+
+.party-symbol {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.vote-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  margin-top: 20px;
+  cursor: pointer;
+  background-color: #ffa726; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.vote-button:hover {
+  background-color: #ff9800; 
+}
+
+.next-button {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: #1c3d5a; 
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #154057; 
+}
+
+.vote-count {
+  margin-top: 20px;
+  color: #1c3d5a; 
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .voting-page {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .voter-details, .voting-section {
+    width: 100%;
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  .voting-section {
+    max-width: 100%; 
+  }
+
+  .party-symbol {
+    width: 60px;
+    height: 60px;
+  }
+
+  .vote-button, .next-button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 590px) {
+  .voter-details, .voting-section {
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+  }
+
+  .voting-section {
+    max-width: 100%;
+  }
+
+  .candidate-option {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .party-symbol {
+    width: 50px;
+    height: 50px;
+  }
+
+  .vote-button, .next-button {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .next-button {
+    position: relative;
+    bottom: 0;
+    right: 0;
+  }
 }

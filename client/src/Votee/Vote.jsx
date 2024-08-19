@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Vote.css';
 
@@ -9,18 +8,13 @@ const VotingPage = () => {
   const [candidates, setCandidates] = useState([]);
   const [selectedCandidate, setSelectedCandidate] = useState('');
   const [voteConfirmed, setVoteConfirmed] = useState(false);
-
   const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate('/Thanks');
-  };
 
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
         const response = await axios.get('http://localhost:3000/api/vote'); 
-        setCandidates(response.data); // Update the candidates state with the data
+        setCandidates(response.data); 
       } catch (error) {
         console.error('Error fetching the candidates data', error);
       }
@@ -44,23 +38,27 @@ const VotingPage = () => {
     if (selectedCandidate) {
       try {
         const voteData = {
-          name: voterDetails.firstName + ' ' + voterDetails.lastName,
+          name: `${voterDetails.firstName} ${voterDetails.lastName}`,
           voterId: voterDetails.voterId,
           aadhar: voterDetails.aadhar,
           selectedCandidate: selectedCandidate,
         };
-
-        // Make a POST request to the API
+       
+        
+      
         const response = await axios.post('http://localhost:3000/api/voted', voteData);
         console.log('Vote data successfully sent:', response.data);
 
-        // Update the local state to confirm the vote
         setVoteConfirmed(true);
         localStorage.setItem(`voted-${voterDetails.voterId}`, true);
       } catch (error) {
         console.error('Error sending the vote data', error);
       }
     }
+  };
+
+  const handleClick = () => {
+    navigate('/Thanks');
   };
 
   return (
@@ -95,11 +93,17 @@ const VotingPage = () => {
           </div>
         ))}
         <button 
-          onClick={handleClick} 
+          onClick={handleVoteConfirmation} 
           disabled={!selectedCandidate || voteConfirmed}
           className="vote-button"
         >
           {voteConfirmed ? 'Vote Confirmed' : 'Confirm Vote'}
+        </button>
+        <button 
+          onClick={handleClick} 
+          className="next-button"
+        >
+          NEXT
         </button>
         {voteConfirmed && <p className="vote-count">Your vote has been recorded for {selectedCandidate}</p>}
       </div>

@@ -35,35 +35,31 @@ const AdminLogin = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-      <form onSubmit={handleLogin} style={{ padding: '20px', border: '1px solid #ccc', borderRadius: '10px', width: '300px' }}>
-        <h2><center>Admin Login</center></h2>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        <div style={{ marginBottom: '15px' }}>
-          <label   style={{ display: 'block', marginBottom: '5px' }}>Username</label>
+    <div className="admin-login-container">
+      <form onSubmit={handleLogin} className="admin-login-form">
+        <h2>Admin Login</h2>
+        {error && <p className="admin-login-error">{error}</p>}
+        <div>
+          <label htmlFor="username">Username</label>
           <input
             type="text"
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            style={{ width: '100%', padding: '8px' }}
             required
           />
         </div>
-        <div style={{ marginBottom: '15px' }}>
-          <label  style={{ display: 'block', marginBottom: '5px' }}>Password</label>
+        <div>
+          <label htmlFor="password">Password</label>
           <input
             type="password"
             id="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            style={{ width: '100%', padding: '8px' }}
             required
           />
         </div>
-        <button type="submit" style={{ width: '100%', padding: '10px', background: '#007BFF', color: 'white', border: 'none', borderRadius: '5px' }}>
-          Login
-        </button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

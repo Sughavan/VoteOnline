@@ -1,12 +1,12 @@
 import React, { useEffect, useRef } from 'react';
 import './ImageSlider.css';
-import image1 from '../Images/vote1.webp';
-import image2 from '../Images/vote2.webp';
+import image1 from '../Images/votegif.webp';
+import image2 from '../Images/votegif2.webp';
 import image3 from '../Images/vote3.png';
 
 const ImageSlider = () => {
     const sliderRef = useRef(null);
-    const cloneCount = 3; // Number of times to clone the slides
+    const cloneCount = 3; 
 
     useEffect(() => {
         const slider = sliderRef.current;

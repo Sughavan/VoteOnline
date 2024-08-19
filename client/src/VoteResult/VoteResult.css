@@ -1,0 +1,53 @@
+
+.vote-result-container {
+    padding: 20px;
+    text-align: center;
+    background-color: #1c1e21; 
+    min-height: 100vh;
+    color: white;
+  }
+
+  .vote-result-heading {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #ffa726; 
+  }
+  
+  .vote-result-chart-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  
+  .vote-result-legend {
+    color: #ffffff;
+  }
+  
+  @media (max-width: 768px) {
+    .vote-result-chart-wrapper {
+      width: 100%;
+      overflow-x: auto; 
+    }
+  
+    .vote-result-heading {
+      font-size: 1.5em;
+    }
+  
+    .vote-result-chart-wrapper svg {
+      width: 100%;
+      height: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .vote-result-heading {
+      font-size: 1.2em;
+    }
+  
+    .vote-result-chart-wrapper svg {
+      width: 100%;
+      height: 250px;
+    }
+  }
+  

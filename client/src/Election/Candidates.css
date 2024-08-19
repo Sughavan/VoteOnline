@@ -1,86 +1,141 @@
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    background: linear-gradient(to right, #c9bfb4, #ffffff);
-    min-height: 100vh;
-    /* font-family: 'Arial, sans-serif'; */
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background: linear-gradient(to right, #f0f4f7, #dbe6f6); /
   
+  
+}
+
+
+.container h1 {
+  margin-bottom: 30px;
+  font-size: 3em;
+  color: #2c3e50;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 700;
+}
+
+.candidates {
+  width: 500px;
+  background-color: #ffffff;
+  padding: 25px;
+  margin-bottom: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border-left: 7px solid #1abc9c; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.candidates:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-left: 7px solid #e74c3c;
+}
+
+.nam {
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  color: #34495e; 
+  text-align: center;
+  font-weight: 700;
+}
+
+.detail {
+  font-size: 1.2em;
+  color: #474949; 
+  margin: 10px 0;
+  text-align: center;
+}
+
+.symbol {
+  width: 300px;
+  height: 300px;
+  object-fit: contain;
+  margin-top: 15px;
+}
+
+.buttonvote {
+  padding: 12px 30px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #1abc9c;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 30px;
+}
+
+.buttonvote:hover {
+  background-color: #e74c3c; 
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+@media (max-width: 1024px) {
+  .candidates {
+    width: 90%;
+  }
 
   .container h1 {
-    margin-bottom: 20px;
-    font-size: 2em;
-    color: #333;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    font-size: 2.5em;
   }
-  
-  
-  .candidates {
-    width: 500px;
-    height: auto;
-    margin-bottom: 20px;
-    background-color: #ffffff;
-    padding: 20px;
-    box-sizing: border-box;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-    border-left: 5px solid #1e90ff;
+
+  .symbol {
+    width: 280px;
+    height: 280px;
   }
-  
- 
-  .candidates:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    border-left: 5px solid #ff6347;
-  }
-  
-  .nam {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-    color: #333;
-    font-weight: bold;
-  }
-  
- 
-  .detail {
-    margin: 5px 0;
-    font-size: 1em;
-    color: #666;
-  }
-  
 
   .buttonvote {
-    padding: 10px 20px;
+    padding: 10px 25px;
+    font-size: 1.1em;
+  }
+}
+
+@media (max-width: 768px) {
+  .candidates {
+    width: 100%;
+  }
+
+  .container h1 {
+    font-size: 2em;
+  }
+
+  .symbol {
+    width: 260px;
+    height: 260px;
+  }
+
+  .buttonvote {
+    padding: 8px 20px;
     font-size: 1em;
-    color: #fff;
-    background-color: #1e90ff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 20px;
-    transition: background-color 0.3s, transform 0.3s;
   }
-  
- 
-  button:hover, button:focus {
-    background-color: #ff6347;
-    transform: translateY(-5px);
+}
+
+@media (max-width: 600px) {
+  .candidates {
+    width: 100%;
   }
-  .symbol
-  {
-    width: 300px;
-    height: 250px;
+
+  .container h1 {
+    font-size: 1.8em;
   }
-  
- 
-  @media (max-width: 600px) {
-    .candidates {
-      width: 90%;
-    }
+
+  .symbol {
+    width: 240px;
+    height: 240px;
   }
-  
+
+  .buttonvote {
+    padding: 8px 18px;
+    font-size: 0.9em;
+  }
+}

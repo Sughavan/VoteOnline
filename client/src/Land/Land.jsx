@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import img1 from "../Land/profile.png";
 import img2 from "../Images/img 2.avif";
 import img3 from "../Images/img 3.jpg";
@@ -10,22 +12,35 @@ import './Land.css';
 
 const Land = () => {
   const navigate = useNavigate();
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+
+  const toggleSidebar = () => {
+    setSidebarOpen(!isSidebarOpen);
+  };
 
   const handleClick = () => {
     navigate('/Election');
-  };
-  const handleelectionk = () => {
-    navigate('/Election');
-  };const handleResult = () => {
-    navigate('/Result');
+    setSidebarOpen(false); // Close sidebar after navigation
   };
 
+  const handleelectionk = () => {
+    navigate('/Election');
+    setSidebarOpen(false);
+  };
+
+  const handleResult = () => {
+    navigate('/Result');
+    setSidebarOpen(false);
+  };
 
   return (
     <div id='home'>
       <nav className='nav_bar'>
         <div className='logo0'>
           <h1 className='logo'>Vote<span className='color'>Online</span></h1>
+        </div>
+        <div className="menu-icon" onClick={toggleSidebar}>
+          <i className="fa fa-bars"></i> {/* Menu Icon */}
         </div>
         <ul className='items'>
           <li className='item'><a className='ite' href='#home'>Home</a></li>
@@ -35,15 +50,21 @@ const Land = () => {
          </ul>
       </nav>
 
-      <div className='hero'>
-        <ImageSlider />
+      <div id="sidebar" className={`sidebar ${isSidebarOpen ? 'show' : ''}`}>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a onClick={handleClick}>VoteNow!</a></li>
+          <li><a onClick={handleelectionk}>Elections</a></li>
+          <li><a onClick={handleResult}>Results!</a></li>
+        </ul>
       </div>
+
+      <div className='hero'><ImageSlider/></div>
       <div className='abou'>
         <h1 className='abo'>About us</h1>
         <p className='ab'>      At Vote Online, we are dedicated to empowering citizens of India by providing a secure, accessible, and transparent online voting system. Under the aegis of the Government of India, our platform ensures that every eligible voter can exercise their democratic right with ease and confidence. We strive to uphold the highest standards of integrity and security, making the voting process seamless and trustworthy. Our commitment is to foster a robust and inclusive electoral process, honoring the spirit of democracy and the voice of every citizen.</p>
 
       </div>
-
       <div className='body_section'>
         <section className='about'>
           <div className='what'>
@@ -55,7 +76,6 @@ const Land = () => {
             </div>
             <img src={img2} alt='img' className='elec' />
           </div>
-
           <div className='need'>
             <img src={img3} alt='img' className='elect' />
             <div className='con'>

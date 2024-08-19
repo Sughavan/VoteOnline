@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
+import './VoteResult.css';
 
 const VoteResult = () => {
   const [data, setData] = useState([]);
@@ -7,20 +8,18 @@ const VoteResult = () => {
   useEffect(() => {
     const fetchVotingResults = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/voted'); // Replace with your API URL
+        const response = await fetch('http://localhost:3000/api/voted'); 
         const jsonData = await response.json();
 
-        // Count votes for each candidate
         const voteCount = jsonData.reduce((acc, item) => {
           if (acc[item.selectedCandidate]) {
-            acc[item.selectedCandidate] += 1; // Increment vote count
+            acc[item.selectedCandidate] += 1; 
           } else {
-            acc[item.selectedCandidate] = 1; // Initialize vote count
+            acc[item.selectedCandidate] = 1; 
           }
           return acc;
         }, {});
 
-        // Convert vote count to format required by Recharts
         const formattedData = Object.keys(voteCount).map(candidate => ({
           name: candidate,
           votes: voteCount[candidate],
@@ -32,37 +31,33 @@ const VoteResult = () => {
       }
     };
 
-    // Initial fetch and periodic updates
     fetchVotingResults();
-    const interval = setInterval(fetchVotingResults, 1000); // Fetch every second
+    const interval = setInterval(fetchVotingResults, 1000); 
 
-    // Cleanup interval on component unmount
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <div style={{ padding: '20px', textAlign: 'center' }}>
-      <h2>Voting Results</h2>
-      <BarChart
-        width={700}
-        height={400}
-        data={data}
-        margin={{
-          top: 20, right: 30, left: 20, bottom: 5,
-        }}
-        barSize={30}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" />
-        <YAxis
-          domain={[0, 'dataMax']}
-          // tickFormatter={(value) => value.toFixed()} // Format ticks to show whole numbers
-          interval="preserveStartEnd" // Ensure numbers don't duplicate
-        />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="votes" fill="#FF6347" />
-      </BarChart>
+    <div className="vote-result-container">
+      <h2 className="vote-result-heading">Voting Results</h2>
+      <div className="vote-result-chart-wrapper">
+        <BarChart
+          width={1280}
+          height={560}
+          data={data}
+          margin={{
+            top: 20, right: 30, left: 20, bottom: 5,
+          }}
+          barSize={30}
+        >
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey="name" stroke="#ffffff" />
+          <YAxis stroke="#ffffff" />
+          <Tooltip cursor={{ fill: 'rgba(255, 255, 255, 0.2)' }} contentStyle={{ backgroundColor: '#333', borderRadius: '10px', color: '#fff' }} />
+          <Legend wrapperStyle={{ color: '#ffffff' }} />
+          <Bar dataKey="votes" fill="#ffa726" />
+        </BarChart>
+      </div>
     </div>
   );
 };
