@@ -8,7 +8,7 @@ const VoteResult = () => {
   useEffect(() => {
     const fetchVotingResults = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/voted'); 
+        const response = await fetch('https://voteonline-7v33.onrender.com/api/voted'); 
         const jsonData = await response.json();
 
         const voteCount = jsonData.reduce((acc, item) => {

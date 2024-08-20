@@ -13,7 +13,7 @@ const VotingPage = () => {
   useEffect(() => {
     const fetchCandidates = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/vote'); 
+        const response = await axios.get('https://voteonline-7v33.onrender.com/api/vote'); 
         setCandidates(response.data); 
       } catch (error) {
         console.error('Error fetching the candidates data', error);
@@ -46,7 +46,7 @@ const VotingPage = () => {
        
         
       
-        const response = await axios.post('http://localhost:3000/api/voted', voteData);
+        const response = await axios.post('https://voteonline-7v33.onrender.com/api/voted', voteData);
         console.log('Vote data successfully sent:', response.data);
 
         setVoteConfirmed(true);
