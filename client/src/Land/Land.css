@@ -294,17 +294,15 @@ body {
   .items {
     display: none;
   }
-.elec
-{
- display: block;
-  width: 25%;
-}
-.elect
-{
- display: block;
-  width:25%;
- 
-}
+  .elec
+  {
+   display: none;
+  }
+  .elect
+  {
+   display: none;
+  
+  }
   .menu-icon {
     display: block;
   }
@@ -317,6 +315,10 @@ body {
   .sidebar.show {
     left: 0;
   }
+  .fing {
+    width: auto;
+    height: auto;
+  }
 
 }
 
@@ -325,16 +327,14 @@ body {
   .items {
     display: none;
   }
-.elec
-{
- display: none;
- 
-}
-.elect
-{
- display:none;
- 
-}
+  .elec
+  {
+   display: none;
+  }
+  .elect
+  {
+   display:none;
+  }
 
 .fing {
   width: auto;
