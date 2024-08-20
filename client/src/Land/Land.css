@@ -337,8 +337,8 @@ body {
 }
 
 .fing {
-  width: 300px;
-  height: 300px;
+  width: auto;
+  height: auto;
 }
   .menu-icon {
     display: block;
